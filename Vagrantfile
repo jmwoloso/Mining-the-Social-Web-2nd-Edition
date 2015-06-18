@@ -31,6 +31,7 @@ Vagrant.configure("2") do |config|
     # The Virtualbox image
     override.vm.box = "precise64"
     override.vm.box_url = "http://files.vagrantup.com/precise64.box"
+    
 
     # Port forwarding details
   
@@ -56,6 +57,8 @@ Vagrant.configure("2") do |config|
     # You can increase the default amount of memory used by your VM by
     # adjusting this value below (in MB) and reprovisioning.
     vb.customize ["modifyvm", :id, "--memory", "384"]
+    vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
   end
  
   #########################################################################
